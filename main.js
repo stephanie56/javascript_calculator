@@ -7,10 +7,20 @@
 
 $(document).ready(function(){
 
-  var num1, num2;
+  var arg1, arg2, arg3;
+
+  $(".key").click(function(){
+    arg1 = $(this).attr("data-key");
+    console.log(arg1);
+  });
+
+  $(".key").click(function(){
+    arg2 = $(this).attr("data-key");
+    console.log(arg2);
+  });
 
   $("li[data-key='equal']").click(function(){
-    console.log(add(num1, num2));
+    console.log(add(arg1, arg2));
   });
 });
 
