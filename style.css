@@ -1,0 +1,48 @@
+html, body
+  {
+    height:100%;
+  }
+
+body
+  {
+    background-color:#76a9b4;
+  }
+
+.container
+  {
+    background-color:#fff;
+    max-width:768px;
+    margin:0 auto;
+    padding:20px;
+    height:100%;
+  }
+
+#resultConsole
+{
+  heihgt:40px;
+  padding: 10px;
+  border-radius:5px;
+  border:1px solid #e2e2e2;
+  background-color:#C3C2AB;
+  width:64%;
+  margin:0 auto;
+  font-size:1.5rem;
+  color:#777;
+  text-align:right;
+}
+
+
+
+.key
+{
+  border:#e2e2e2 2px solid;
+  display:block;
+  margin:0 8px 8px 0;
+  float:left;
+  color:pink;
+  font-size: 1.5rem;
+  width:80px;
+  height:80px;
+  line-height:80px;
+  text-align:center;
+}
