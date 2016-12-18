@@ -46,3 +46,8 @@ body
   line-height:80px;
   text-align:center;
 }
+
+.opkey {
+  background-color:#e2e2e2;
+  color:red;
+}
