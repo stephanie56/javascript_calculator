@@ -11,31 +11,21 @@ $(document).ready(function(){
   var opObj = {
     firstInp: null,
     secInp: null,
-    operation: null
+    operation: null,
+    result:null
   };
-  $(".key").click(function(){
-    if($(this).hasClass("numkey")){
-      inpArr.push($(this).attr("data-key"));
-      firstNum = inpArr.join("");
-      opObj.firstInp = firstNum;
-    }
-    else {
-      opObj.operation = $(this).attr("data-key");
-      // if first arg is not empty, input second arg
-      if(opObj.firstInp !== null){
-        $(".key").click(function(){
-          secinpArr.push($(this).attr("data-key"));
-          secNum = secinpArr.join("");
-          opObj.secInp = secNum;
-        });
-      }
-    }
-    console.log(opObj);
-  });
 
-  //console.log(opObj);
+function addNum (){
+  inpArr.push($(this).attr("data-key"));
+  firstNum = inpArr.join("");
+  opObj.firstInp = firstNum;
+}
+
+$(".key").bind("click", addNum, false);
+
 
 });
+
 
 function add (a, b){
   return a + b;
