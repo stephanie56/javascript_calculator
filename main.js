@@ -29,7 +29,9 @@ ClearNum =>
 $(document).ready(function(){
   // temp string holders for firstNum and secNum
   var str1 = "";
+  var string1 = null; // placeholder for firstNum
   var str2 = "";
+  var string2 = null; // placeholder for secNum
   var opObj = {
     firstNum: null, // first number input
     secNum: null, // second number input
@@ -40,16 +42,20 @@ $(document).ready(function(){
 
     if($(this).hasClass("opkey")) {
       // if click on operation keys
-      if(opObj.firstNum !== null && opObj.secNum == null) {
+      if(string1 !== null && string2 == null) {
       // If first input exist and the second input is empty, put this operation value to opObj.op
       opObj.op = $(this).attr("data-key");
+      opObj.firstNum = string1; // when click on op sign, display first num
+      display(opObj.op);
          }
-      else if(opObj.firstNum !== null && opObj.secNum !== null) {
+      else if(opObj.firstNum !== null && string2 !== null) {
       // if first and second input exist, clear up str1 & str2 memory, assign the calculation of firstnum and secnum to firstnum => obj.first = eval(obj.first+obj.op+obj.sec), obj.sec = null, obj.op = this.attr, strinfdisplay(obj.first)
+        opObj.secNum = string2;
         var cal = opObj.firstNum + opObj.op + opObj.secNum;
         opObj.firstNum = eval(cal);
         opObj.secNum = null;
         opObj.op = $(this).attr("data-key");
+        display(opObj.firstNum);
       }
       else {
       // if both of first and secondnum are empty, do nothing
@@ -61,25 +67,41 @@ $(document).ready(function(){
       // if click on number keys
       if(opObj.op == null){
       // If no operation sign there, write datakey value to string 1, and assign the value of string 1 to firstNum
-      opObj.firstNum = writeNum(str1, $(this).attr("data-key"));
+      string1 = writeNum(str1, $(this).attr("data-key"));
+      display(string1);
          }
       else {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
-      opObj.secNum = writeNum(str2, $(this).attr("data-key"));
+      string2 = writeNum(str2, $(this).attr("data-key"));
+      display(string2);
       }
     }
 
    else {
-    // when click on a wildcard key - e.g. clear key
-    console.log("error");
+    // when click on clearKey
+    clearData();
          }
 
     console.log(opObj); // testing
 
   }); // on-click keys event
 
- function writeNum (str, num){
+ /* a function to get number from onclick event*/
+  function writeNum (str, num){
    return str += num;
+ }
+
+ /* a function to display digits on screen*/
+ function display (elm){
+   $("#resultConsole").text(elm);
+ }
+
+/* a function to clear out all memories and display */
+ function clearData(){
+   $("#resultConsole").text("0");
+   opObj.firstNum = null;
+   opObj.secNum = null;
+   opObj.op = null;
  }
 
 
