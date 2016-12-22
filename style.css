@@ -45,6 +45,7 @@ body
   height:80px;
   line-height:80px;
   text-align:center;
+  cursor: pointer;
 }
 
 .opkey {
@@ -55,4 +56,14 @@ body
 .clearkey {
   background-color:red;
   color:white;
+  border: red 1px solid;
+}
+
+.testing {
+  width:100%;
+  background-color:#000;
+  color:green;
+  height:50px;
+  float:left;
+  padding:10px;
 }
