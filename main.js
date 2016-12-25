@@ -90,12 +90,18 @@ $(document).ready(function(){
       }
     }
 
-   else {
+    else if ($(this).hasClass("clearkey")) {
     // when click on clearKey
+    $(".display").text("0");
     clearData();
-         }
+    errMsg("i'm clicking on the clear key.");
+      }
 
-    console.log(opObj); // testing
+    else {
+     errMsg("i'm clicking on a key that does nothing.");
+     }
+
+  console.log(opObj); // testing
 
   }); // on-click keys event
 
@@ -117,7 +123,6 @@ $(document).ready(function(){
 
 /* a function to clear out all memories and display */
  function clearData(){
-   $("#resultConsole").text("0");
    opObj.firstNum = null;
    opObj.secNum = null;
    opObj.op = null;
