@@ -46,8 +46,8 @@ $(document).ready(function(){
       // If first input exist and the second input is empty, put this operation value to opObj.op
       opObj.op = $(this).attr("data-key");
       opObj.firstNum = string1.join(""); // when click on op sign, display first num
-      display(opObj.op);
-      errMsg("when string1 exist and string2 is empty, display operation sign" + " opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
+      displayOp(opObj.op);
+      errMsg("when string1 exist and string2 is empty, display operation sign. opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
          }
       else if(opObj.firstNum !== null && string2.length !== 0) {
       // if first and second input exist, clear up str1 & str2 memory, assign the calculation of firstnum and secnum to firstnum => obj.first = eval(obj.first+obj.op+obj.sec), obj.sec = null, obj.op = this.attr, strinfdisplay(obj.first)
@@ -55,8 +55,9 @@ $(document).ready(function(){
         var cal = opObj.firstNum + opObj.op + opObj.secNum;
         opObj.firstNum = eval(cal);
         opObj.secNum = null;
+        string2 = [];
         opObj.op = $(this).attr("data-key");
-        display(opObj.firstNum);
+        displayOp(opObj.firstNum);
         errMsg("result of first two calculation" + " string1 is " + string1 + " and string2 is "+ string2 + "opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
       }
       else {
@@ -71,16 +72,16 @@ $(document).ready(function(){
       // if click on number keys
       if(opObj.op == null){
       // If no operation sign there, write datakey value to string 1, and assign the value of string 1 to firstNum
-      string1.push(writeNum(str1, $(this).attr("data-key")));
-      display(string1);
-      errMsg("if no operation sign here, keep writing on string1" + "string1 is " + string1 + "and string2 is "+ string2 );
+      string1.push($(this).attr("data-key"));
+      displayNum(string1);
+      errMsg("if no operation sign here, keep writing on string1. " + "string1 is " + string1 + " and string2 is "+ string2 );
 
          }
       else {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
-      string2.push(writeNum(str2, $(this).attr("data-key")));
-      display(string2);
-      errMsg("if an operation sign exist, keep writing on string2" + "string1 is " + string1 + "and string2 is "+ string2 );
+      string2.push($(this).attr("data-key"));
+      displayNum(string2);
+      errMsg("if an operation sign exist, keep writing on string2. string1 is " + string1 + "and string2 is "+ string2 );
       }
     }
 
@@ -98,9 +99,15 @@ $(document).ready(function(){
    return str += num;
  }
 
- /* a function to display digits on screen*/
- function display (arr){
-   $("#resultConsole").text(arr.join(""));
+ /* a function to display digits on screen */
+ function displayNum (arr){
+   arr = arr.join("");
+   $(".display").text(arr);
+ }
+
+ /* a function to display operation signs on screen */
+ function displayOp (elm){
+   $(".display").text(elm);
  }
 
 /* a function to clear out all memories and display */

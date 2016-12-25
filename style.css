@@ -19,7 +19,6 @@ body
 
 #resultConsole
 {
-  heihgt:40px;
   padding: 10px;
   border-radius:5px;
   border:1px solid #e2e2e2;
@@ -31,7 +30,9 @@ body
   text-align:right;
 }
 
-
+#resultConsole .status {
+  font-size:1rem;
+}
 
 .key
 {
