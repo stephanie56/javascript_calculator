@@ -38,6 +38,7 @@ $(document).ready(function(){
     op: null // operation sign input
   };
 
+
   $(".key").click(function(){
 
     if($(this).hasClass("opkey")) {
@@ -78,13 +79,15 @@ $(document).ready(function(){
       // if click on number keys
       if(opObj.op == null){
       // If no operation sign there, write datakey value to string 1, and assign the value of string 1 to firstNum
-      string1.push($(this).attr("data-key"));
+      pushNum($(this).attr("data-key"), string1);
+      // string1.push($(this).attr("data-key"));
       displayNum(string1);
       errMsg("if no operation sign here, keep writing on string1. " + "string1 is " + string1 + " and string2 is "+ string2 );
          }
       else {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
-      string2.push($(this).attr("data-key"));
+      pushNum($(this).attr("data-key"), string2);
+      // string2.push($(this).attr("data-key"));
       displayNum(string2);
       errMsg("if an operation sign exist, keep writing on string2. string1 is " + string1 + "and string2 is "+ string2 );
       }
@@ -105,15 +108,28 @@ $(document).ready(function(){
 
   }); // on-click keys event
 
- /* a function to get number from onclick event*/
-  function writeNum (str, num){
-   return str += num;
+ /* check the current number string, if num[0] is zero && num[1] is not dot,   */
+ function pushNum (val, arr){
+   if(val == "." && arr.length == 0){
+     return arr.push("0.");
+   } // if first digit is dot, add zero before the dot
+   else if (val == "0" && arr.length == 0){
+     return arr;
+   }
+   else{
+     return arr.push(val);
+   } // push this.attr to string
  }
 
  /* a function to display digits on screen */
  function displayNum (arr){
-   arr = arr.join("");
-   $(".display").text(arr);
+   if (arr.length == 0){
+     $(".display").text("0");
+   }
+   else {
+     arr = arr.join("");
+     $(".display").text(arr);
+   }
  }
 
  /* a function to display operation signs on screen */
