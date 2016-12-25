@@ -28,9 +28,7 @@ ClearNum =>
 
 $(document).ready(function(){
   // temp string holders for firstNum and secNum
-  var str1 = "";
   var string1 = []; // placeholder for firstNum
-  var str2 = "";
   var string2 = []; // placeholder for secNum
   var opObj = {
     firstNum: null, // first number input
@@ -115,6 +113,12 @@ $(document).ready(function(){
    } // if first digit is dot, add zero before the dot
    else if (val == "0" && arr.length == 0){
      return arr;
+   }
+   else if (val == "-" && arr[0] !== "-"){
+     return arr.unshift("-"); // if cilck -/+ add negative sign at beginning of the number string
+   }
+   else if (val == "-" && arr[0] == "-"){
+     return arr.shift("-"); // if cilck -/+ add negative sign at beginning of the number string
    }
    else{
      return arr.push(val);
