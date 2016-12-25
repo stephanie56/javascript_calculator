@@ -47,6 +47,7 @@ $(document).ready(function(){
       opObj.op = $(this).attr("data-key");
       opObj.firstNum = string1.join(""); // when click on op sign, display first num
       displayOp(opObj.op);
+      string1 = [];
       errMsg("when string1 exist and string2 is empty, display operation sign. opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
          }
       else if(opObj.firstNum !== null && string2.length !== 0) {
@@ -58,12 +59,17 @@ $(document).ready(function(){
         string2 = [];
         opObj.op = $(this).attr("data-key");
         displayOp(opObj.firstNum);
-        errMsg("result of first two calculation" + " string1 is " + string1 + " and string2 is "+ string2 + "opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
+        errMsg("Result of first two calculation is " + opObj.firstNum + " and string1 is " + string1 + " and string2 is "+ string2 + "opObj.firstNum is " + opObj.firstNum + " and secNum is " + opObj.secNum );
       }
+      else if (opObj.firstNum !== null && string2.length == 0){
+        opObj.op = $(this).attr("data-key");
+        displayOp(opObj.op);
+        errMsg("when firstNum exists and change operation sign, replace new op to " + opObj.op);
+      }
+
       else {
-      // if both of first and secondnum are empty, do nothing
-        console.log("opkey error");
-        errMsg("both strings are empty" + "string1 is " + string1 + "and string2 is " + string2 );
+      // if both of first and secondnum are empty, and opObj.firstNum is empty as well do nothing
+        errMsg("both strings are empty. string1 is " + string1 + "and string2 is " + string2 );
       }
 
     }
@@ -75,7 +81,6 @@ $(document).ready(function(){
       string1.push($(this).attr("data-key"));
       displayNum(string1);
       errMsg("if no operation sign here, keep writing on string1. " + "string1 is " + string1 + " and string2 is "+ string2 );
-
          }
       else {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
