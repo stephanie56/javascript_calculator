@@ -11,36 +11,36 @@
     <div id="app">
       <div id="resultConsole">
         <div class="display">0</div><!-- display current entered numbers -->
-        <!-- <div class="status">n/a</div> -->
-      </div> <!-- console -->
-      <ul class="numberKeys">
-        <li class="key numkey" data-key="0">0</li>
-        <li class="key numkey" data-key="1">1</li>
-        <li class="key numkey" data-key="2">2</li>
-        <li class="key numkey" data-key="3">3</li>
-        <li class="key numkey" data-key="4">4</li>
-        <li class="key numkey" data-key="5">5</li>
-        <li class="key numkey" data-key="6">6</li>
-        <li class="key numkey" data-key="7">7</li>
-        <li class="key numkey" data-key="8">8</li>
-        <li class="key numkey" data-key="9">9</li>
-        <li class="key numkey" data-key="-">-/+</li>
-        <li class="key numkey" data-key=".">.</li>
-      </ul> <!-- numberKeys -->
-      <ul class="operationKeys">
-        <li class="key opkey" data-key="+">+</li>
-        <li class="key opkey" data-key="-">-</li>
-        <li class="key opkey" data-key="/">/</li>
-        <li class="key opkey" data-key="*">*</li>
-        <li class="key opkey" data-key="=">=</li>
-      </ul> <!-- operationKeys-->
-      <ul>
-        <li class="key clearkey">Clear</li>
-      </ul>
-    </div><!-- calculator app -->
-
-    <div class="testing">error message</div>
-
+      </div> <!-- result console ends -->
+      <div id ="keyPad">
+        <ul class="numberKeys">
+          <li class="key numkey whitebtn" data-key="0">0</li>
+          <li class="key numkey whitebtn" data-key="1">1</li>
+          <li class="key numkey whitebtn" data-key="2">2</li>
+          <li class="key numkey whitebtn" data-key="3">3</li>
+          <li class="key numkey whitebtn" data-key="4">4</li>
+          <li class="key numkey whitebtn" data-key="5">5</li>
+          <li class="key numkey whitebtn" data-key="6">6</li>
+          <li class="key numkey whitebtn" data-key="7">7</li>
+          <li class="key numkey whitebtn" data-key="8">8</li>
+          <li class="key numkey whitebtn" data-key="9">9</li>
+          <li class="key numkey whitebtn" data-key=".">.</li>
+          <li class="key numkey whitebtn" data-key="-">-/+</li>
+          <li class="key numkey redbtn" data-key="CE">CE</li>
+        </ul> <!-- numberKeys -->
+        <ul>
+          <li class="key clearkey redbtn">AC</li>
+        </ul>
+        <ul class="operationKeys">
+          <li class="key opkey greybtn" data-key="+">+</li>
+          <li class="key opkey greybtn" data-key="-">-</li>
+          <li class="key opkey greybtn" data-key="/">/</li>
+          <li class="key opkey greybtn" data-key="*">*</li>
+          <li class="key opkey greybtn lgbtn" data-key="=">=</li>
+        </ul> <!-- operationKeys-->
+      </div> <!-- keypad pannel ends -->
+    </div><!-- app ends -->
+    <p class="credit">Javascript Calculator / Coded by <a href="https://github.com/stephanie56" target="_blank">Stephanie Zeng</a></p>
     </div> <!-- container -->
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

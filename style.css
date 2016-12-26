@@ -5,66 +5,108 @@ html, body
 
 body
   {
-    background-color:#76a9b4;
+    background-color:#446B96; // black
   }
 
 .container
   {
-    background-color:#fff;
-    max-width:768px;
+    max-width:500px;
     margin:0 auto;
+    margin-top:30px;
     padding:20px;
     height:100%;
   }
+
+.credit{
+  color:#fff;
+  margin:0 12%;
+  margin-top:40px;
+  float:left;
+  text-align:center;
+}
+
+.credit a {
+  color:#fff;
+  text-decoration:none;
+}
+
+.credit a:hover {
+  text-decoration:underline;
+
+}
+
+#app {
+  /** border:green solid 2px;**/
+  background-color:#F1ECE6;
+  border:2px #ececec solid;
+  border-radius:5px;
+  float:left;
+  padding:40px 0 20px;
+  margin: 0 10%;
+  -webkit-box-shadow: -1px 4px 44px 4px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 4px 44px 4px rgba(0,0,0,0.75);
+  box-shadow: -1px 4px 44px 4px rgba(0,0,0,0.75);
+}
 
 #resultConsole
 {
   padding: 10px;
   border-radius:5px;
-  border:1px solid #e2e2e2;
-  background-color:#C3C2AB;
+  border:2px solid #59525D;
+  background-color:#C8C3B3;
   width:64%;
   margin:0 auto;
-  font-size:1.5rem;
-  color:#777;
+  font-size:1.8rem;
+  color:#59525D;
   text-align:right;
 }
 
-#resultConsole .status {
-  font-size:1rem;
+#keyPad {
+  width:360px;
+  padding: 0px;
+  margin: 0 auto;
+  float:left;
 }
 
 .key
 {
-  border:#e2e2e2 2px solid;
   display:block;
+  border-radius:5px;
   margin:0 8px 8px 0;
   float:left;
-  color:pink;
   font-size: 1.5rem;
-  width:80px;
-  height:80px;
-  line-height:80px;
+  width:60px;
+  height:60px;
+  line-height:60px;
   text-align:center;
   cursor: pointer;
+  -webkit-box-shadow: -1px 4px 28px -11px rgba(38,38,38,1);
+  -moz-box-shadow: -1px 4px 28px -11px rgba(38,38,38,1);
+  box-shadow: -1px 4px 28px -11px rgba(38,38,38,1);
 }
 
-.opkey {
-  background-color:#e2e2e2;
-  color:red;
+.key:hover{
+  border:#B0D0D7 2px solid; // light blue border
 }
 
-.clearkey {
+.lgbtn {
+  width:132px;
+}
+
+.redbtn {
   background-color:red;
   color:white;
-  border: red 1px solid;
+  border: red 2px solid;
 }
 
-.testing {
-  width:100%;
-  background-color:#000;
-  color:green;
-  height:50px;
-  float:left;
-  padding:10px;
+.whitebtn {
+  background-color:#fff;
+  color:#41413e;
+  border:#59525D 2px solid;
+}
+
+.greybtn {
+  background-color:#59525D;
+  border: solid 2px #59525D;
+  color:#fff;
 }
