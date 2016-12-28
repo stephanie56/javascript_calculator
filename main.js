@@ -102,6 +102,11 @@ $(document).ready(function(){
    if (arr.length == 0){
      $(".display").text("0");
    }
+   else if(arr.length > 8){
+     arr = arr.join("");
+     var num = (parseFloat(arr)).toPrecision(6);
+     $(".display").text(num);
+   }
    else {
      arr = arr.join("");
      $(".display").text(arr);
@@ -110,7 +115,13 @@ $(document).ready(function(){
 
  /* a function to display operation signs on screen */
  function displayOp (elm){
-   $(".display").text(elm);
+   elm = elm + ""; // parse number to string
+   if(elm.length > 8){
+     var num = (parseFloat(elm)).toPrecision(4);
+     $(".display").text(num);
+   }
+   else{
+     $(".display").text(elm);}
  }
 
 /* a function to clear out all memories and displayed characters on screen */
