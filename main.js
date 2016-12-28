@@ -76,8 +76,8 @@ $(document).ready(function(){
      // if first digit is dot, add zero before the dot
      return arr.push("0.");
    }
-   else if ((val == "0" && arr.length == 0) || arr.length > 8){
-     // if first digit is 0, or user try to enter more than 10 digits
+   else if ((val == "0" && arr.length == 0) || arr.length > 12){
+     // if first digit is 0, or user try to enter more than 12 digits
      return arr;
    }
    else if (val == "-" && arr[0] !== "-"){
@@ -102,9 +102,9 @@ $(document).ready(function(){
    if (arr.length == 0){
      $(".display").text("0");
    }
-   else if(arr.length > 8){
+   else if(arr.length > 20){
      arr = arr.join("");
-     var num = (parseFloat(arr)).toPrecision(6);
+     var num = (parseFloat(arr)).toPrecision(10);
      $(".display").text(num);
    }
    else {
@@ -118,6 +118,7 @@ $(document).ready(function(){
    elm = elm + ""; // parse number to string
    if(elm.length > 8){
      var num = (parseFloat(elm)).toPrecision(4);
+     num = num.replace(/\.?0*$/, ""); // trim useless zeros
      $(".display").text(num);
    }
    else{
