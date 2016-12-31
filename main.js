@@ -16,10 +16,16 @@ $(document).ready(function(){
       // if click on operation keys
       if(string1.length !== 0  && string2.length == 0) {
       // If first input exists and the second input doesn't, assign current operation value to opObj.op
+      if($(this).attr("data-key")!="="){
       opObj.op = $(this).attr("data-key");
       opObj.firstNum = string1.join(""); // when click on a operation sign, assign strfirstNum to OBJ.firstNum
       displayOp(opObj.op); // display operation sign
       string1 = []; // after assigning first number value to OBJ.firstNum, empty first string holder
+      }
+      else {
+        return 0;
+      }
+
          }
       else if(opObj.firstNum !== null && string2.length !== 0) {
       // if first and second input exist, clear up str1 & str2 memory, assign the calculation of firstnum and secnum to firstnum => obj.first = eval(obj.first+obj.op+obj.sec), obj.sec = null, obj.op = this.attr, strinfdisplay(obj.first)
@@ -32,12 +38,17 @@ $(document).ready(function(){
         displayOp(opObj.firstNum);
       }
       else if (opObj.firstNum !== null && string2.length == 0){
-        opObj.op = $(this).attr("data-key");
-        displayOp(opObj.op);
+        if($(this).attr("data-key")!="="){
+          opObj.op = $(this).attr("data-key");
+          displayOp(opObj.op);
+        }
+        else{
+          return 0;
+        }
       }
       else {
       // if both of first and secondnum are empty, and opObj.firstNum is empty as well do nothing
-        console.log("both strings are empty. string1 is " + string1 + "and string2 is " + string2 );
+        return 0;
       }
 
     }
