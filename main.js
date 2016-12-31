@@ -60,10 +60,13 @@ $(document).ready(function(){
       pushNum($(this).attr("data-key"), string1);
       displayNum(string1);
       }
-      else {
+      else if (opObj.op != "=") {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
       pushNum($(this).attr("data-key"), string2);
       displayNum(string2);
+      }
+      else {
+        return 0;
       }
     }
 
@@ -74,7 +77,8 @@ $(document).ready(function(){
     }
 
     else {
-     console.log("i'm clicking on a key that does nothing.");
+      return 0;
+     //console.log("i'm clicking on a key that does nothing.");
     }
 
     console.log(opObj);
