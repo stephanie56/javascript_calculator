@@ -76,6 +76,9 @@ $(document).ready(function(){
      // if first digit is dot, add zero before the dot
      return arr.push("0.");
    }
+   else if(val == "." && arr.indexOf(".")!=-1){
+     return arr;
+   }
    else if ((val == "0" && arr.length == 0) || arr.length > 12){
      // if first digit is 0, or user try to enter more than 12 digits
      return arr;
@@ -113,10 +116,10 @@ $(document).ready(function(){
    }
  }
 
- /* a function to display operation signs on screen */
+ /* a function to display operator signs & firstNum on screen */
  function displayOp (elm){
    elm = elm + ""; // parse number to string
-   if(elm.length > 8){
+   if(elm.length > 10){
      var num = (parseFloat(elm)).toPrecision(4);
      num = num.replace(/\.?0*$/, ""); // trim useless zeros
      $(".display").text(num);
