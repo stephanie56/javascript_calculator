@@ -30,7 +30,13 @@ $(document).ready(function(){
       else if(opObj.firstNum !== null && string2.length !== 0) {
       // if first and second input exist, clear up str1 & str2 memory, assign the calculation of firstnum and secnum to firstnum => obj.first = eval(obj.first+obj.op+obj.sec), obj.sec = null, obj.op = this.attr, strinfdisplay(obj.first)
         opObj.secNum = string2.join("");
-        var cal = opObj.firstNum + opObj.op + opObj.secNum;
+        var cal;
+        if(opObj.op == "-" && opObj.secNum[0] == "-"){
+          cal = opObj.firstNum - opObj.secNum;
+        }
+        else{
+          cal = opObj.firstNum + opObj.op + opObj.secNum;
+        }
         opObj.firstNum = eval(cal);
         opObj.secNum = null;
         string2 = [];
@@ -58,12 +64,12 @@ $(document).ready(function(){
       if(opObj.op == null){
       // If no operation sign there, write datakey value to string 1, and assign the value of string 1 to firstNum
       pushNum($(this).attr("data-key"), string1);
-      console.log(string1);
       displayNum(string1);
       }
       else if (opObj.op != "=") {
        // If an operation sign exist, write datakey value to string 2, and assign the value of string 2 to secNum
       pushNum($(this).attr("data-key"), string2);
+      console.log(string2);
       displayNum(string2);
       }
       else {
@@ -100,11 +106,11 @@ $(document).ready(function(){
      return arr;
    }
    else if (val == "-" && arr[0] !== "-"){
-     // if cilck -/+ add negative sign at beginning of the number string
+     // if click -/+ add negative sign at beginning of the number string
      return arr.unshift("-");
    }
    else if (val == "-" && arr[0] == "-"){
-     // if cilck -/+ add negative sign at beginning of the number string
+     // if click -/+ add negative sign at beginning of the number string
      return arr.shift("-");
    }
    else if (val == "CE"){
