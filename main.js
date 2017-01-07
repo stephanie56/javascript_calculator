@@ -58,6 +58,7 @@ $(document).ready(function(){
       if(opObj.op == null){
       // If no operation sign there, write datakey value to string 1, and assign the value of string 1 to firstNum
       pushNum($(this).attr("data-key"), string1);
+      console.log(string1);
       displayNum(string1);
       }
       else if (opObj.op != "=") {
@@ -91,7 +92,7 @@ $(document).ready(function(){
      // if first digit is dot, add zero before the dot
      return arr.push("0.");
    }
-   else if(val == "." && arr.indexOf(".")!=-1){
+   else if(val == "." && (arr.indexOf(".")!=-1 || arr.indexOf("0.")!=-1 )){
      return arr;
    }
    else if ((val == "0" && arr.length == 0) || arr.length > 12){
